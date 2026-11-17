@@ -65,7 +65,7 @@ body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:90;
 .eyebrow::before{content:"";width:28px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
 .tag{font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:500}
 .h1,.h2,.h3{font-family:var(--serif);font-weight:300;letter-spacing:-.022em;margin:0;color:var(--cream);font-optical-sizing:auto}
-.h1{font-size:clamp(44px,6.1vw,94px);line-height:.98}
+.h1{font-size:clamp(44px,5.4vw,84px);line-height:.98}
 .h2{font-size:clamp(36px,5vw,72px);line-height:1}
 .h3{font-size:clamp(26px,2.5vw,34px);line-height:1.08}
 .h1 em,.h2 em,.h3 em{font-style:italic;font-weight:300;color:var(--gold-hi)}
@@ -155,9 +155,10 @@ section{position:relative}
 
 /* hero */
 .hero{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;background:var(--ink)}
-.hero-copy{display:flex;flex-direction:column;justify-content:center;gap:34px;padding:calc(var(--hdr) + 40px) var(--pad) 60px;padding-left:max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)));position:relative;background:radial-gradient(90% 70% at 0% 100%,rgba(5,39,64,.85),transparent 70%)}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;gap:26px;padding:calc(var(--hdr) + 40px) var(--pad) 60px;padding-left:max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)));position:relative;background:radial-gradient(90% 70% at 0% 100%,rgba(5,39,64,.85),transparent 70%)}
 .hero-copy .h1{max-width:11ch}
-.hero-meta{display:flex;gap:28px;padding-top:30px;border-top:1px solid var(--line);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.hero-copy .btn-row .btn{padding:0 22px}
+.hero-meta{display:flex;gap:28px;padding-top:22px;border-top:1px solid var(--line);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
 .hero-meta b{display:block;font-family:var(--serif);font-weight:300;font-size:26px;letter-spacing:0;text-transform:none;color:var(--cream);margin-bottom:2px}
 .hero-media{position:relative;min-height:100svh}
 .hero-media .media{position:absolute;inset:0}
@@ -300,6 +301,9 @@ section{position:relative}
 .hcard .d{font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
 .hcard .t{white-space:nowrap;font-family:var(--serif);font-weight:300;font-size:clamp(34px,3.4vw,48px);line-height:1}
 .hcard .t em{color:var(--mute);font-size:.6em}
+.hcard .t i{font-style:italic;color:var(--gold);font-size:.55em;margin:0 .15em}
+.hours-note{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;margin-top:22px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-hi);text-align:center}
+.hours-note span{width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
 .hcard.today{border-color:var(--gold);background:rgba(196,155,103,.06)}
 .hcard.today::before{content:"Hoje";position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:10px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;padding:3px 12px}
 .status{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:40px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
@@ -332,6 +336,28 @@ footer .r{justify-self:end;text-align:right}
 .wa svg{width:24px;height:24px}
 
 
+
+/* black friday */
+.bf{position:relative;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:14px 22px;padding:20px 22px;border:1px solid rgba(225,205,181,.28);background:linear-gradient(135deg,rgba(0,0,0,.55),rgba(12,37,57,.45));overflow:hidden;isolation:isolate;max-width:560px}
+.bf::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(225,205,181,.12) 45%,transparent 60%);transform:translateX(-100%);animation:bfShine 5s var(--ease) 2s infinite;z-index:-1}
+@keyframes bfShine{40%,100%{transform:translateX(100%)}}
+.bf-tape{position:absolute;left:0;right:0;top:0;height:16px;background:var(--gold);overflow:hidden;display:flex}
+.bf-tape span{flex:none;display:flex;white-space:nowrap;font-size:8.5px;font-weight:700;letter-spacing:.28em;line-height:16px;color:var(--ink);animation:marq 18s linear infinite}
+.bf{padding-top:36px}
+.bf-date{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-right:22px;border-right:1px solid var(--line);font-family:var(--serif);line-height:1}
+.bf-date b{font-weight:300;font-size:44px;letter-spacing:-.02em;color:var(--cream)}
+.bf-date small{font-family:var(--sans);font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-top:8px}
+.bf-body{display:flex;flex-direction:column;gap:4px;min-width:0}
+.bf-body .k{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-hi)}
+.bf-body .t{font-family:var(--serif);font-weight:300;font-size:26px;line-height:1.05;white-space:nowrap}
+.bf-body .t em{color:var(--gold-hi)}
+.bf-body .o{font-size:13px;color:var(--mute)}
+.bf-body .o strong{color:var(--cream);font-weight:600}
+.bf-cd{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-variant-numeric:tabular-nums}
+.bf .btn{height:44px;padding:0 18px;font-size:10.5px;white-space:nowrap;grid-column:2;justify-self:start}
+.bf-date{grid-row:span 2}
+@media (max-width:860px){.bf{max-width:none}.bf-date{grid-row:auto}.bf .btn{grid-column:1/-1;justify-self:stretch}}
+@media (max-width:360px){.bf-date b{font-size:36px}.bf-body .t{font-size:22px}}
 /* ---------- transições entre seções, textos e mídias ---------- */
 .sec::before{content:"";position:absolute;top:0;left:50%;width:min(var(--max),100% - 2*var(--pad));height:1px;transform:translateX(-50%) scaleX(0);background:linear-gradient(90deg,transparent,var(--gold) 50%,transparent);opacity:.55;transition:transform 1.6s var(--ease-out)}
 .sec.seen::before{transform:translateX(-50%) scaleX(1)}
@@ -473,6 +499,17 @@ footer .r{justify-self:end;text-align:right}
       <div><b>Alfaiate</b>na casa</div>
       <div><b>Café</b>à sua espera</div>
     </div>
+    <aside class="bf rvh" id="bf" style="--d:.8s" aria-label="Black Friday Cavare">
+      <div class="bf-tape" aria-hidden="true"><span>BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; </span><span>BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; </span></div>
+      <div class="bf-date"><b>18.11</b><small>Black Friday</small></div>
+      <div class="bf-body">
+        <span class="k">Authority Friday</span>
+        <span class="t">Até <em>80% off</em></span>
+        <span class="o">Descontos exclusivos para o <strong>Grupo VIP Cavare</strong>.</span>
+        <span class="bf-cd" id="bfcd"></span>
+      </div>
+      <a class="btn" href="https://wa.me/5583987506256?text=Ol%C3%A1%21%20Quero%20entrar%20no%20Grupo%20VIP%20Cavare%20da%20Black%20Friday%20%28Authority%20Friday%2C%2018/11%29." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/><path d="M9 8.3c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .5.6 1.1 1.5 2 2.7 2.6.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.3.3.5 0 .9-.6 1.8-1.6 1.9-1.6.2-3.6-.6-5.2-2.2C8.9 12.4 8.2 10.3 9 8.3z" fill="currentColor" stroke="none"/></svg>Entrar no Grupo VIP</a>
+    </aside>
   </div>
   <div class="hero-media">
     <div class="media hm">
@@ -528,8 +565,8 @@ footer .r{justify-self:end;text-align:right}
       <h2 class="h2 lines" data-lines>O caimento certo <em>transforma o visual.</em></h2>
     </div>
   </div>
-  <div class="vstage" id="vstage" data-real="3" aria-roledescription="carrossel" aria-label="Vídeos da Cavare">
-    <div class="vslide" role="group" aria-label="Três formas de usar o mesmo costume azul"><div class="frame"><img class="poster" src="video/suit.webp" alt="" width="720" height="1280" loading="lazy"><video data-src="video/suit.mp4" muted playsinline preload="none" poster="video/suit.webp" aria-label="Três formas de usar o mesmo costume azul"></video><span class="prog"></span></div><div class="vbtns"><button class="snd" type="button" aria-label="Ativar ou desativar som" data-off='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>' data-on='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button></div></div><div class="vslide" role="group" aria-label="Calçados sociais e tênis em uso"><div class="frame"><img class="poster" src="video/calcados.webp" alt="" width="720" height="1280" loading="lazy"><video data-src="video/calcados.mp4" muted playsinline preload="none" poster="video/calcados.webp" aria-label="Calçados sociais e tênis em uso"></video><span class="prog"></span></div><div class="vbtns"><button class="snd" type="button" aria-label="Ativar ou desativar som" data-off='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>' data-on='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button></div></div><div class="vslide" role="group" aria-label="Mocassim preto com solado caramelo"><div class="frame"><img class="poster" src="video/patamar.webp" alt="" width="720" height="1280" loading="lazy"><video data-src="video/patamar.mp4" muted playsinline preload="none" poster="video/patamar.webp" aria-label="Mocassim preto com solado caramelo"></video><span class="prog"></span></div><div class="vbtns"><button class="snd" type="button" aria-label="Ativar ou desativar som" data-off='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>' data-on='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button></div></div>
+  <div class="vstage" id="vstage" data-real="8" aria-roledescription="carrossel" aria-label="Vídeos da Cavare">
+    <div class="vslide" role="group" aria-label="Três formas de usar o mesmo costume azul"><div class="frame"><img class="poster" src="video/suit.webp" alt="" width="720" height="1280" loading="lazy"><video data-src="video/suit.mp4" muted playsinline preload="none" poster="video/suit.webp" aria-label="Três formas de usar o mesmo costume azul"></video><span class="prog"></span></div><div class="vbtns"><button class="snd" type="button" aria-label="Ativar ou desativar som" data-off='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>' data-on='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button></div></div><div class="vslide" role="group" aria-label="Calçados que vão elevar o seu nível"><div class="frame"><img class="poster" src="video/calcados.webp" alt="" width="720" height="1280" loading="lazy"><video data-src="video/calcados.mp4" muted playsinline preload="none" poster="video/calcados.webp" aria-label="Calçados que vão elevar o seu nível"></video><span class="prog"></span></div><div class="vbtns"><button class="snd" type="button" aria-label="Ativar ou desativar som" data-off='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>' data-on='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button></div></div><div class="vslide" role="group" aria-label="Blazer tecnológico: elasticidade, costas vazadas e cores"><div class="frame"><img class="poster" src="video/blazer-tecnologico.webp" alt="" width="720" height="1280" loading="lazy"><video data-src="video/blazer-tecnologico.mp4" muted playsinline preload="none" poster="video/blazer-tecnologico.webp" aria-label="Blazer tecnológico: elasticidade, costas vazadas e cores"></video><span class="prog"></span></div><div class="vbtns"><button class="snd" type="button" aria-label="Ativar ou desativar som" data-off='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>' data-on='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button></div></div><div class="vslide" role="group" aria-label="Um costume, três gravatas"><div class="frame"><img class="poster" src="video/gravatas.webp" alt="" width="720" height="1280" loading="lazy"><video data-src="video/gravatas.mp4" muted playsinline preload="none" poster="video/gravatas.webp" aria-label="Um costume, três gravatas"></video><span class="prog"></span></div><div class="vbtns"><button class="snd" type="button" aria-label="Ativar ou desativar som" data-off='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>' data-on='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button></div></div><div class="vslide" role="group" aria-label="Sapato social marrom em detalhe"><div class="frame"><img class="poster" src="video/sapato-oxford.webp" alt="" width="720" height="1280" loading="lazy"><video data-src="video/sapato-oxford.mp4" muted playsinline preload="none" poster="video/sapato-oxford.webp" aria-label="Sapato social marrom em detalhe"></video><span class="prog"></span></div><div class="vbtns"><button class="snd" type="button" aria-label="Ativar ou desativar som" data-off='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>' data-on='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button></div></div><div class="vslide" role="group" aria-label="Look com suspensório e gravata vermelha"><div class="frame"><img class="poster" src="video/suspensorio.webp" alt="" width="720" height="1280" loading="lazy"><video data-src="video/suspensorio.mp4" muted playsinline preload="none" poster="video/suspensorio.webp" aria-label="Look com suspensório e gravata vermelha"></video><span class="prog"></span></div><div class="vbtns"><button class="snd" type="button" aria-label="Ativar ou desativar som" data-off='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>' data-on='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button></div></div><div class="vslide" role="group" aria-label="Blazer caramelo com camisa listrada"><div class="frame"><img class="poster" src="video/blazer-caramelo.webp" alt="" width="720" height="1280" loading="lazy"><video data-src="video/blazer-caramelo.mp4" muted playsinline preload="none" poster="video/blazer-caramelo.webp" aria-label="Blazer caramelo com camisa listrada"></video><span class="prog"></span></div><div class="vbtns"><button class="snd" type="button" aria-label="Ativar ou desativar som" data-off='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>' data-on='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button></div></div><div class="vslide" role="group" aria-label="Seus pés em outro patamar"><div class="frame"><img class="poster" src="video/patamar.webp" alt="" width="720" height="1280" loading="lazy"><video data-src="video/patamar.mp4" muted playsinline preload="none" poster="video/patamar.webp" aria-label="Seus pés em outro patamar"></video><span class="prog"></span></div><div class="vbtns"><button class="snd" type="button" aria-label="Ativar ou desativar som" data-off='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>' data-on='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button></div></div>
   </div>
   <div class="vctrl">
     <button class="arrow" id="vprev" aria-label="Vídeo anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
@@ -656,6 +693,7 @@ footer .r{justify-self:end;text-align:right}
     </div>
     <div class="hours-grid" id="hoursGrid"></div>
     <div class="status rv" id="status"><i></i><span>—</span></div>
+    <p class="hours-note rv">Loja presencial<span></span>Atendimento via WhatsApp</p>
   </div>
 </section>
 
@@ -694,11 +732,11 @@ footer .r{justify-self:end;text-align:right}
 /* ===== Horário de funcionamento — edite aqui (0=domingo … 6=sábado) ===== */
 const HOURS = {
   cards: [
-    {d:"Segunda a sexta", t:"09h — 19h", days:[1,2,3,4,5]},
-    {d:"Sábado",          t:"09h — 14h", days:[6]},
-    {d:"Domingo",         t:"Fechado",   days:[0]}
+    {d:"Segunda a sexta", t:"09:00 às 17:00", days:[1,2,3,4,5]},
+    {d:"Sábado",          t:"09:00 às 17:00", days:[6]},
+    {d:"Domingo",         t:"Fechado",        days:[0]}
   ],
-  open: {1:[9,19],2:[9,19],3:[9,19],4:[9,19],5:[9,19],6:[9,14]}
+  open: {1:[9,17],2:[9,17],3:[9,17],4:[9,17],5:[9,17],6:[9,17]}
 };
 </script>
 <script>
@@ -745,6 +783,16 @@ const hdr=$('#hdr'), wa=$('#wa');
 const onScroll=()=>{const y=scrollY; hdr.classList.toggle('solid',y>40); wa.classList.toggle('show',y>innerHeight*.8)};
 addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
+
+/* black friday: contagem e expiração */
+(()=>{const el=$('#bf'); if(!el) return; const cd=$('#bfcd');
+  const start=new Date('2026-11-18T00:00:00-03:00'), end=new Date('2026-11-19T00:00:00-03:00');
+  const tick=()=>{const n=new Date();
+    if(n>=end){el.remove();return}
+    if(n>=start){cd.textContent='É hoje · aproveite até 23h59';return}
+    const s=Math.floor((start-n)/1000), d=Math.floor(s/86400), h=Math.floor(s%86400/3600), m=Math.floor(s%3600/60), x=s%60;
+    cd.textContent=`Começa em ${d?d+'d ':''}${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(x).padStart(2,'0')}s`;
+    setTimeout(tick,1000)}; tick();})();
 /* seções: linha dourada + entrada do conteúdo */
 const sio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('seen');sio.unobserve(e.target)}}),{rootMargin:'0px 0px -12% 0px',threshold:.04});
 $$('.sec').forEach(s=>sio.observe(s));
@@ -757,7 +805,7 @@ let ticking=false;
 function frame(){ ticking=false; const vh=innerHeight;
   parEls.forEach(m=>{const r=m.getBoundingClientRect(); if(r.bottom<-50||r.top>vh+50) return;
     const p=(r.top+r.height/2-vh/2)/vh; m.style.setProperty('--py',(p*-5).toFixed(2)+'%')});
-  const y=scrollY; if(y<vh*1.2){ const k=y/vh; hc.style.transform=`translateY(${k*-60}px)`; hc.style.opacity=String(Math.max(0,1-k*1.1)); if(hm) hm.style.translate=`0 ${k*8}%`; }
+  const y=scrollY; if(innerWidth>860 && y<vh*1.2){ const k=y/vh; hc.style.transform=`translateY(${k*-60}px)`; hc.style.opacity=String(Math.max(0,1-k*1.1)); if(hm) hm.style.translate=`0 ${k*8}%`; }
 }
 if(!reduce){ addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(frame)}},{passive:true}); frame(); }
 /* video carousel */
@@ -803,12 +851,12 @@ rail.addEventListener('scroll',upd,{passive:true}); addEventListener('resize',up
 
 /* hours */
 const hg=$('#hoursGrid'), now=new Date(), today=now.getDay();
-hg.innerHTML=HOURS.cards.map((c,i)=>`<div class="hcard rv${c.days.includes(today)?' today':''}" style="--d:${i*.1}s"><span class="d">${c.d}</span><span class="t">${c.t.replace('Fechado','<em>Fechado</em>')}</span></div>`).join('');
+hg.innerHTML=HOURS.cards.map((c,i)=>`<div class="hcard rv${c.days.includes(today)?' today':''}" style="--d:${i*.1}s"><span class="d">${c.d}</span><span class="t">${c.t.replace('Fechado','<em>Fechado</em>').replace(' às ','<i> às </i>')}</span></div>`).join('');
 $$('.hcard',hg).forEach(el=>io.observe(el));
 const h=now.getHours()+now.getMinutes()/60, o=HOURS.open[today], st=$('#status');
 const isOpen=o&&h>=o[0]&&h<o[1];
 st.classList.toggle('open',!!isOpen);
-$('span',st).textContent=isOpen?`Aberto agora · fecha às ${o[1]}h`:'Fechado agora · chame no WhatsApp';
+$('span',st).textContent=isOpen?`Aberto agora · fecha às ${o[1]}h`:'Loja fechada agora · fale conosco pelo WhatsApp';
 $('#yr').textContent=now.getFullYear();
 })();
 </script>
