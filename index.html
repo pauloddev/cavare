@@ -24,6 +24,8 @@
 <style>
 @font-face{font-family:"Newsreader";font-style:normal;font-display:swap;font-weight:200 800;src:url(assets/fonts/newsreader-latin-opsz-normal.woff2) format("woff2")}
 @font-face{font-family:"Newsreader";font-style:italic;font-display:swap;font-weight:200 800;src:url(assets/fonts/newsreader-latin-opsz-italic.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-style:normal;font-display:swap;font-weight:100 900;src:url(assets/fonts/montserrat-latin-wght-normal.woff2) format("woff2")}
+@font-face{font-family:"Oswald";font-style:normal;font-display:swap;font-weight:500;src:url(assets/fonts/oswald-latin-500-normal.woff2) format("woff2")}
 @font-face{font-family:"Instrument Sans";font-style:normal;font-display:swap;font-weight:400 700;src:url(assets/fonts/instrument-sans-latin-wght-normal.woff2) format("woff2")}
 
 :root{
@@ -337,27 +339,46 @@ footer .r{justify-self:end;text-align:right}
 
 
 
-/* black friday */
-.bf{position:relative;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:14px 22px;padding:20px 22px;border:1px solid rgba(225,205,181,.28);background:linear-gradient(135deg,rgba(0,0,0,.55),rgba(12,37,57,.45));overflow:hidden;isolation:isolate;max-width:560px}
-.bf::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(225,205,181,.12) 45%,transparent 60%);transform:translateX(-100%);animation:bfShine 5s var(--ease) 2s infinite;z-index:-1}
-@keyframes bfShine{40%,100%{transform:translateX(100%)}}
-.bf-tape{position:absolute;left:0;right:0;top:0;height:16px;background:var(--gold);overflow:hidden;display:flex}
-.bf-tape span{flex:none;display:flex;white-space:nowrap;font-size:8.5px;font-weight:700;letter-spacing:.28em;line-height:16px;color:var(--ink);animation:marq 18s linear infinite}
-.bf{padding-top:36px}
-.bf-date{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-right:22px;border-right:1px solid var(--line);font-family:var(--serif);line-height:1}
-.bf-date b{font-weight:300;font-size:44px;letter-spacing:-.02em;color:var(--cream)}
-.bf-date small{font-family:var(--sans);font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-top:8px}
-.bf-body{display:flex;flex-direction:column;gap:4px;min-width:0}
-.bf-body .k{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-hi)}
-.bf-body .t{font-family:var(--serif);font-weight:300;font-size:26px;line-height:1.05;white-space:nowrap}
-.bf-body .t em{color:var(--gold-hi)}
-.bf-body .o{font-size:13px;color:var(--mute)}
-.bf-body .o strong{color:var(--cream);font-weight:600}
-.bf-cd{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-variant-numeric:tabular-nums}
-.bf .btn{height:44px;padding:0 18px;font-size:10.5px;white-space:nowrap;grid-column:2;justify-self:start}
-.bf-date{grid-row:span 2}
-@media (max-width:860px){.bf{max-width:none}.bf-date{grid-row:auto}.bf .btn{grid-column:1/-1;justify-self:stretch}}
-@media (max-width:360px){.bf-date b{font-size:36px}.bf-body .t{font-size:22px}}
+
+/* ===== Black Friday (tema do vídeo) ===== */
+.bfx{--y:#f4c70c;--blk:#000;--link:#2094e8;position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(60% 120% at 50% 55%,#262626 0%,#121212 45%,#050505 100%);color:#fff;font-family:"Montserrat",var(--sans);padding:120px var(--pad) 70px}
+.bfx-tapes{position:absolute;left:-5%;right:-5%;top:22px;height:90px;pointer-events:none;z-index:3}
+.tape{position:absolute;left:0;right:0;height:30px;background:var(--y);overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.55)}
+.tape:nth-child(1){top:14px;transform:rotate(-1.6deg)}
+.tape:nth-child(2){top:40px;transform:rotate(1.4deg);filter:brightness(.92)}
+.tape-track{display:flex;width:max-content;animation:tape 26s linear infinite}
+.tape:nth-child(2) .tape-track{animation-direction:reverse;animation-duration:32s}
+.tape-track span{font-weight:800;font-size:14px;letter-spacing:.02em;line-height:30px;color:#0b0b0b;white-space:nowrap;padding-right:.6em}
+@keyframes tape{to{transform:translateX(-50%)}}
+.coin{position:absolute;z-index:1;width:var(--s,110px);height:var(--s,110px);filter:drop-shadow(0 18px 24px rgba(0,0,0,.7));animation:coin 7s ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
+.coin.blur{filter:blur(3px) drop-shadow(0 18px 24px rgba(0,0,0,.7));opacity:.8}
+.coin svg{width:100%;height:100%;transform:rotate(var(--r,0deg)) perspective(400px) rotateX(var(--rx,40deg));}
+@keyframes coin{to{translate:0 -14px;rotate:6deg}}
+.bfx-inner{position:relative;z-index:2;max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px}
+.bfx-card{display:grid;grid-template-columns:auto 1px auto 1px auto auto;align-items:center;justify-content:space-between;gap:36px;padding:34px 44px;background:#000;border-radius:18px;border:1px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 40px 80px -20px rgba(0,0,0,.9),0 0 0 1px rgba(0,0,0,.6)}
+.bfx-card .sep{width:1px;align-self:stretch;background:linear-gradient(transparent,rgba(255,255,255,.18),transparent)}
+.bfx-title{display:flex;flex-direction:column;line-height:.95}
+.bfx-title .a{font-weight:300;font-size:clamp(26px,2.6vw,38px);letter-spacing:.02em;color:#dcdcdc}
+.bfx-title .b{font-weight:800;font-size:clamp(34px,3.6vw,54px);letter-spacing:.01em;background:linear-gradient(180deg,#9a9a9a 0%,#6e6e6e 45%,#4a4a4a 70%,#8a8a8a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bfx-off{display:flex;flex-direction:column;align-items:center;gap:6px;text-transform:uppercase;text-align:center}
+.bfx-off .a{font-weight:400;font-size:14px;letter-spacing:.18em;color:#e8e8e8}
+.bfx-off .b{font-weight:700;font-size:17px;letter-spacing:.18em;color:#fff}
+.bfx-date{font-weight:800;font-size:clamp(46px,4.6vw,68px);letter-spacing:-.01em;line-height:1;background:linear-gradient(180deg,#fff 0%,#f2f2f2 50%,#bdbdbd 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bfx-pill{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 24px;border-radius:12px;background:#fff;color:var(--link);font-family:"Oswald",var(--sans);font-weight:500;font-size:21px;letter-spacing:.01em;white-space:nowrap;transition:transform .35s var(--ease-out),box-shadow .35s}
+.bfx-pill:hover{transform:translateY(-2px);box-shadow:0 12px 30px -8px rgba(255,255,255,.35)}
+.bfx-pill svg{width:22px;height:22px;flex:none}
+.bfx-sym{width:46px;height:46px;fill:#fff;opacity:.95}
+@media (max-width:1080px){.bfx-card{grid-template-columns:1fr 1fr;gap:22px 40px;justify-items:center;padding:34px 40px}.bfx-card .sep{display:none}.bfx-title{grid-column:1/-1;align-items:center}.bfx-off{justify-self:end}.bfx-date{justify-self:start}.bfx-pill{grid-column:1/-1}.coin.c3{top:auto;bottom:-24px;right:-20px}}
+@media (max-width:760px){
+  .bfx{padding:118px 20px 54px}
+  .bfx-inner{grid-template-columns:1fr;justify-items:center;gap:30px}
+  .bfx-card{grid-template-columns:1fr;gap:20px;padding:38px 26px 34px;width:min(100%,380px);text-align:center}
+  .bfx-title .a{font-size:34px}.bfx-title .b{font-size:46px}
+  .bfx-date{font-size:58px}
+  .tape-track span{font-size:12.5px}
+}
+@media (max-width:760px){.coin.c2,.coin.c4{display:none}.coin.c1{left:-38px!important;top:300px!important;--s:96px!important}.coin.c3{right:-34px!important;top:auto!important;bottom:70px;--s:104px!important}}
+@media (prefers-reduced-motion:reduce){.tape-track,.coin{animation:none}}
 /* ---------- transições entre seções, textos e mídias ---------- */
 .sec::before{content:"";position:absolute;top:0;left:50%;width:min(var(--max),100% - 2*var(--pad));height:1px;transform:translateX(-50%) scaleX(0);background:linear-gradient(90deg,transparent,var(--gold) 50%,transparent);opacity:.55;transition:transform 1.6s var(--ease-out)}
 .sec.seen::before{transform:translateX(-50%) scaleX(1)}
@@ -499,17 +520,6 @@ footer .r{justify-self:end;text-align:right}
       <div><b>Alfaiate</b>na casa</div>
       <div><b>Café</b>à sua espera</div>
     </div>
-    <aside class="bf rvh" id="bf" style="--d:.8s" aria-label="Black Friday Cavare">
-      <div class="bf-tape" aria-hidden="true"><span>BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; </span><span>BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; BLACK FRIDAY &nbsp;·&nbsp; </span></div>
-      <div class="bf-date"><b>18.11</b><small>Black Friday</small></div>
-      <div class="bf-body">
-        <span class="k">Authority Friday</span>
-        <span class="t">Até <em>80% off</em></span>
-        <span class="o">Descontos exclusivos para o <strong>Grupo VIP Cavare</strong>.</span>
-        <span class="bf-cd" id="bfcd"></span>
-      </div>
-      <a class="btn" href="https://wa.me/5583987506256?text=Ol%C3%A1%21%20Quero%20entrar%20no%20Grupo%20VIP%20Cavare%20da%20Black%20Friday%20%28Authority%20Friday%2C%2018/11%29." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/><path d="M9 8.3c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .5.6 1.1 1.5 2 2.7 2.6.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.3.3.5 0 .9-.6 1.8-1.6 1.9-1.6.2-3.6-.6-5.2-2.2C8.9 12.4 8.2 10.3 9 8.3z" fill="currentColor" stroke="none"/></svg>Entrar no Grupo VIP</a>
-    </aside>
   </div>
   <div class="hero-media">
     <div class="media hm">
@@ -519,6 +529,26 @@ footer .r{justify-self:end;text-align:right}
   </div>
 </section>
 
+
+<!-- BLACK FRIDAY -->
+<section class="bfx" id="bf" aria-label="Black Friday Cavare">
+  <div class="bfx-tapes" aria-hidden="true">
+    <div class="tape"><div class="tape-track"><span>BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * </span><span>BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * </span></div></div>
+    <div class="tape"><div class="tape-track"><span>BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * </span><span>BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * BLACK FRIDAY * </span></div></div>
+  </div>
+  <div class="coin c1 blur" style="--s:120px;--r:-25deg;--rx:45deg;left:3%;top:150px;--dl:0s"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><radialGradient id="cf0" cx=".45" cy=".35" r=".7"><stop offset="0" stop-color="#2d2d2d"/><stop offset="1" stop-color="#060606"/></radialGradient><linearGradient id="cs0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2f2f2"/><stop offset=".45" stop-color="#8d8d8d"/><stop offset=".7" stop-color="#d9d9d9"/><stop offset="1" stop-color="#5b5b5b"/></linearGradient></defs><circle cx="60" cy="66" r="52" fill="#020202"/><circle cx="60" cy="60" r="52" fill="url(#cf0)" stroke="url(#cs0)" stroke-width="4"/><circle cx="60" cy="60" r="44" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1.5"/><ellipse cx="42" cy="44" rx="11" ry="12" fill="none" stroke="url(#cs0)" stroke-width="6"/><ellipse cx="78" cy="76" rx="11" ry="12" fill="none" stroke="url(#cs0)" stroke-width="6"/><path d="M80 30 L40 90" stroke="url(#cs0)" stroke-width="7" stroke-linecap="round"/></svg></div><div class="coin c2 " style="--s:96px;--r:20deg;--rx:30deg;left:24%;bottom:-30px;--dl:1.2s"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><radialGradient id="cf1" cx=".45" cy=".35" r=".7"><stop offset="0" stop-color="#2d2d2d"/><stop offset="1" stop-color="#060606"/></radialGradient><linearGradient id="cs1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2f2f2"/><stop offset=".45" stop-color="#8d8d8d"/><stop offset=".7" stop-color="#d9d9d9"/><stop offset="1" stop-color="#5b5b5b"/></linearGradient></defs><circle cx="60" cy="66" r="52" fill="#020202"/><circle cx="60" cy="60" r="52" fill="url(#cf1)" stroke="url(#cs1)" stroke-width="4"/><circle cx="60" cy="60" r="44" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1.5"/><ellipse cx="42" cy="44" rx="11" ry="12" fill="none" stroke="url(#cs1)" stroke-width="6"/><ellipse cx="78" cy="76" rx="11" ry="12" fill="none" stroke="url(#cs1)" stroke-width="6"/><path d="M80 30 L40 90" stroke="url(#cs1)" stroke-width="7" stroke-linecap="round"/></svg></div><div class="coin c3 " style="--s:120px;--r:15deg;--rx:50deg;right:-1%;top:170px;--dl:.6s"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><radialGradient id="cf2" cx=".45" cy=".35" r=".7"><stop offset="0" stop-color="#2d2d2d"/><stop offset="1" stop-color="#060606"/></radialGradient><linearGradient id="cs2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2f2f2"/><stop offset=".45" stop-color="#8d8d8d"/><stop offset=".7" stop-color="#d9d9d9"/><stop offset="1" stop-color="#5b5b5b"/></linearGradient></defs><circle cx="60" cy="66" r="52" fill="#020202"/><circle cx="60" cy="60" r="52" fill="url(#cf2)" stroke="url(#cs2)" stroke-width="4"/><circle cx="60" cy="60" r="44" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1.5"/><ellipse cx="42" cy="44" rx="11" ry="12" fill="none" stroke="url(#cs2)" stroke-width="6"/><ellipse cx="78" cy="76" rx="11" ry="12" fill="none" stroke="url(#cs2)" stroke-width="6"/><path d="M80 30 L40 90" stroke="url(#cs2)" stroke-width="7" stroke-linecap="round"/></svg></div><div class="coin c4 blur" style="--s:84px;--r:-10deg;--rx:35deg;right:22%;bottom:-24px;--dl:2s"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><radialGradient id="cf3" cx=".45" cy=".35" r=".7"><stop offset="0" stop-color="#2d2d2d"/><stop offset="1" stop-color="#060606"/></radialGradient><linearGradient id="cs3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2f2f2"/><stop offset=".45" stop-color="#8d8d8d"/><stop offset=".7" stop-color="#d9d9d9"/><stop offset="1" stop-color="#5b5b5b"/></linearGradient></defs><circle cx="60" cy="66" r="52" fill="#020202"/><circle cx="60" cy="60" r="52" fill="url(#cf3)" stroke="url(#cs3)" stroke-width="4"/><circle cx="60" cy="60" r="44" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1.5"/><ellipse cx="42" cy="44" rx="11" ry="12" fill="none" stroke="url(#cs3)" stroke-width="6"/><ellipse cx="78" cy="76" rx="11" ry="12" fill="none" stroke="url(#cs3)" stroke-width="6"/><path d="M80 30 L40 90" stroke="url(#cs3)" stroke-width="7" stroke-linecap="round"/></svg></div>
+  <div class="bfx-inner rv">
+    <div class="bfx-card">
+      <div class="bfx-title"><span class="a">AUTHORITY</span><span class="b">FRIDAY</span></div>
+      <span class="sep"></span>
+      <div class="bfx-off"><span class="a">Descontos de</span><span class="b">Até 80% off</span></div>
+      <span class="sep"></span>
+      <span class="bfx-date">18.11</span>
+      <a class="bfx-pill" href="https://wa.me/5583987506256?text=Ol%C3%A1%21%20Quero%20entrar%20no%20Grupo%20VIP%20Cavare%20da%20Black%20Friday%20%28Authority%20Friday%2C%2018/11%29." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg>GRUPO VIP CAVARE</a>
+    </div>
+    <svg class="bfx-sym" viewBox="0 0 185.00 183.67" aria-label="Cavare"><path fill-rule="evenodd" d="M174.42 183.40C163.27 182.70 156.88 182.09 154.18 181.48C153.76 181.39 152.20 181.17 150.71 180.99C149.22 180.81 147.12 180.48 146.04 180.25C144.97 180.02 143.56 179.71 142.92 179.58C142.28 179.44 140.96 179.19 140.00 179.02C138.28 178.71 136.13 178.22 134.33 177.72C133.83 177.58 132.44 177.26 131.25 177.00C130.06 176.75 128.90 176.46 128.67 176.36C128.44 176.27 127.27 175.91 126.08 175.58C122.15 174.46 120.60 173.98 119.54 173.57C118.96 173.35 118.36 173.17 118.21 173.16C118.05 173.16 117.58 173.01 117.17 172.82C116.75 172.63 115.78 172.30 115.00 172.08C114.22 171.86 112.95 171.45 112.17 171.16C111.39 170.87 110.08 170.39 109.25 170.09C108.42 169.79 107.04 169.26 106.17 168.92C105.30 168.59 104.28 168.21 103.92 168.08C103.55 167.96 102.54 167.55 101.67 167.16C100.80 166.78 99.67 166.29 99.17 166.08C98.66 165.87 97.65 165.44 96.92 165.12C96.18 164.80 95.28 164.41 94.92 164.25C94.09 163.90 92.77 163.30 91.25 162.58C90.61 162.28 89.52 161.78 88.83 161.48C88.15 161.17 86.33 160.26 84.79 159.46C83.25 158.66 81.95 158.00 81.90 158.00C81.68 158.00 69.74 151.34 67.76 150.11C67.02 149.65 66.04 149.05 65.58 148.76C65.12 148.48 64.52 148.09 64.25 147.90C63.97 147.70 63.15 147.19 62.42 146.75C61.68 146.31 60.22 145.38 59.17 144.70C58.11 144.01 56.69 143.08 56.00 142.64C54.41 141.61 53.36 140.88 51.35 139.41C50.47 138.76 48.89 137.62 47.83 136.87C43.52 133.80 41.78 132.47 37.49 129.00C36.87 128.50 35.75 127.60 35.00 127.00C33.25 125.61 31.68 124.30 30.51 123.25C30.00 122.79 29.21 122.12 28.75 121.75C27.30 120.60 25.15 118.68 23.14 116.77C22.08 115.75 20.32 114.09 19.23 113.08C15.13 109.29 7.85 101.83 4.92 98.43C0.14 92.88 -0.00 92.71 0.00 92.19C0.00 91.68 0.19 91.43 3.81 87.23C6.09 84.58 11.65 78.73 15.45 74.99C20.43 70.08 24.19 66.62 29.92 61.67C30.82 60.89 31.95 59.91 32.43 59.50C32.90 59.09 33.72 58.41 34.25 58.00C34.77 57.59 35.52 56.99 35.91 56.67C36.30 56.35 37.01 55.78 37.49 55.42C37.97 55.05 38.97 54.26 39.71 53.67C42.06 51.77 46.72 48.24 47.92 47.45C48.28 47.20 49.00 46.70 49.50 46.33C50.00 45.97 50.79 45.40 51.25 45.09C51.71 44.77 52.50 44.21 53.00 43.85C54.47 42.79 59.98 39.12 61.25 38.35C61.89 37.96 62.87 37.35 63.42 37.00C63.97 36.65 64.75 36.16 65.17 35.91C66.11 35.33 68.05 34.10 68.92 33.50C69.28 33.26 71.07 32.23 72.89 31.23C74.70 30.23 76.95 28.99 77.89 28.47C78.82 27.95 80.48 27.07 81.58 26.52C82.68 25.96 84.37 25.09 85.33 24.58C86.30 24.08 87.98 23.24 89.08 22.73C90.18 22.21 91.72 21.48 92.50 21.09C93.28 20.70 94.22 20.29 94.58 20.17C94.95 20.05 95.33 19.90 95.42 19.83C95.65 19.65 98.57 18.37 99.59 18.01C100.05 17.85 100.83 17.50 101.34 17.25C101.84 16.99 103.11 16.46 104.17 16.08C105.22 15.69 106.91 15.04 107.92 14.63C108.92 14.22 110.31 13.68 111.00 13.42C111.69 13.17 112.62 12.81 113.08 12.63C113.54 12.45 114.52 12.13 115.25 11.91C115.98 11.70 117.93 11.07 119.58 10.50C122.90 9.37 127.84 7.88 130.42 7.24C132.89 6.62 135.92 5.86 137.33 5.49C138.02 5.31 139.56 4.98 140.75 4.76C141.94 4.54 143.82 4.16 144.92 3.92C148.06 3.24 149.29 3.02 151.08 2.84C152.00 2.75 153.01 2.60 153.33 2.51C154.27 2.24 160.50 1.38 163.50 1.10C168.59 0.62 178.68 -0.00 181.40 -0.00C184.08 -0.00 184.11 0.00 184.50 0.42C184.84 0.78 184.90 1.02 184.91 2.05C184.97 10.99 184.59 76.32 184.48 76.53C184.40 76.69 184.09 76.88 183.79 76.95C183.49 77.02 178.86 77.04 173.50 76.99C162.53 76.88 163.39 76.98 159.51 75.46C153.73 73.20 149.21 67.53 148.16 61.19C147.87 59.47 147.84 58.26 147.83 48.28C147.82 41.05 147.75 37.16 147.64 36.95C147.36 36.43 146.66 36.67 144.00 38.17C142.67 38.92 141.06 39.81 140.42 40.16C136.08 42.45 133.59 43.81 132.54 44.44C131.87 44.84 131.28 45.17 131.23 45.17C131.18 45.17 130.30 45.64 129.28 46.23C128.26 46.81 126.89 47.57 126.25 47.92C125.61 48.27 124.56 48.86 123.92 49.24C122.14 50.30 119.04 52.00 118.89 52.00C118.81 52.00 118.11 52.38 117.33 52.85C116.55 53.31 115.58 53.86 115.17 54.07C114.12 54.61 113.05 55.19 112.17 55.70C111.75 55.94 110.93 56.39 110.33 56.71C109.32 57.24 107.83 58.08 106.25 59.00C105.88 59.21 105.06 59.66 104.42 60.00C101.56 61.51 98.42 63.26 95.25 65.09C93.44 66.14 90.88 67.56 88.45 68.86C87.46 69.39 86.45 69.96 86.20 70.14C85.95 70.32 85.38 70.65 84.92 70.88C84.08 71.30 75.96 75.76 73.33 77.25C72.55 77.69 69.97 79.11 67.58 80.42C61.65 83.66 60.45 84.33 59.00 85.20C58.31 85.61 57.52 86.06 57.25 86.20C56.83 86.42 55.16 87.34 52.08 89.08C49.22 90.69 48.33 91.17 48.18 91.17C47.87 91.17 47.46 91.96 47.62 92.25C47.70 92.39 49.00 93.20 50.51 94.03C52.02 94.86 53.89 95.90 54.67 96.33C56.47 97.34 60.12 99.36 62.17 100.50C63.04 100.98 64.40 101.74 65.19 102.19C65.98 102.63 66.67 103.00 66.73 103.00C66.79 103.00 67.12 103.18 67.46 103.39C67.80 103.61 69.43 104.53 71.08 105.42C72.73 106.32 74.27 107.19 74.50 107.34C74.73 107.50 76.00 108.21 77.33 108.92C78.66 109.63 80.76 110.79 82.00 111.49C83.24 112.20 85.26 113.32 86.50 113.99C87.74 114.66 89.46 115.62 90.33 116.12C93.95 118.21 97.82 120.36 100.76 121.92C101.31 122.21 102.29 122.77 102.92 123.16C103.56 123.55 104.34 123.97 104.66 124.10C104.97 124.24 105.87 124.72 106.66 125.19C109.22 126.71 110.22 127.28 112.40 128.44C113.59 129.07 115.05 129.85 115.65 130.17C116.26 130.49 116.98 130.91 117.25 131.10C117.53 131.30 118.30 131.74 118.98 132.08C119.66 132.42 122.17 133.79 124.56 135.13C126.96 136.46 129.63 137.95 130.50 138.42C131.37 138.89 132.50 139.53 133.00 139.82C133.93 140.38 136.39 141.73 139.83 143.58C141.90 144.68 142.31 144.91 145.04 146.48C146.85 147.52 147.32 147.66 147.63 147.29C147.75 147.15 147.83 143.29 147.88 135.83C147.94 125.16 147.97 124.50 148.30 122.99C149.37 118.11 152.35 113.85 156.54 111.21C158.20 110.17 161.10 108.83 161.72 108.83C161.84 108.83 162.50 108.68 163.18 108.49C164.34 108.16 164.98 108.14 173.83 108.05C182.16 107.97 183.32 107.99 183.88 108.22L184.50 108.48L184.50 109.87C184.50 110.63 184.50 127.40 184.51 147.15C184.51 180.69 184.50 183.06 184.23 183.35C183.97 183.64 183.69 183.66 180.93 183.64C179.27 183.63 176.34 183.52 174.42 183.40ZM88.32 86.96C88.15 86.90 88.00 86.70 88.00 86.52C88.00 86.27 88.82 85.67 91.21 84.16C96.13 81.04 96.69 80.68 98.84 79.29C99.94 78.58 100.88 78.00 100.93 78.00C100.99 78.00 101.34 77.78 101.72 77.52C102.93 76.68 105.19 75.24 112.17 70.86C114.87 69.16 117.53 67.49 118.08 67.13C118.63 66.78 119.30 66.36 119.56 66.20C119.83 66.05 120.24 65.76 120.48 65.58C120.72 65.39 121.40 64.95 122.00 64.59C122.60 64.23 123.54 63.63 124.11 63.26C125.12 62.59 127.86 60.80 128.57 60.35C128.80 60.20 129.11 60.16 129.39 60.23C129.88 60.35 129.85 60.14 129.91 64.33C129.96 67.38 130.56 70.42 131.62 72.92C132.87 75.87 133.01 76.12 134.56 78.42C136.09 80.70 139.29 83.75 141.71 85.25C143.16 86.15 143.53 86.54 143.23 86.84C143.02 87.05 88.89 87.17 88.32 86.96Z"/></svg>
+  </div>
+</section>
 <div class="band" aria-hidden="true"><div class="band-track">
   <span>Ternos</span><span>Costumes</span><span>Blazers</span><span>Alfaiataria</span><span>Consultoria de imagem</span><span>Camisaria</span><span>Acessórios</span><span>Sapatos</span><span>Ternos</span><span>Costumes</span><span>Blazers</span><span>Alfaiataria</span><span>Consultoria de imagem</span><span>Camisaria</span><span>Acessórios</span><span>Sapatos</span>
 </div></div>
@@ -784,15 +814,9 @@ const onScroll=()=>{const y=scrollY; hdr.classList.toggle('solid',y>40); wa.clas
 addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
 
-/* black friday: contagem e expiração */
-(()=>{const el=$('#bf'); if(!el) return; const cd=$('#bfcd');
-  const start=new Date('2026-11-18T00:00:00-03:00'), end=new Date('2026-11-19T00:00:00-03:00');
-  const tick=()=>{const n=new Date();
-    if(n>=end){el.remove();return}
-    if(n>=start){cd.textContent='É hoje · aproveite até 23h59';return}
-    const s=Math.floor((start-n)/1000), d=Math.floor(s/86400), h=Math.floor(s%86400/3600), m=Math.floor(s%3600/60), x=s%60;
-    cd.textContent=`Começa em ${d?d+'d ':''}${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(x).padStart(2,'0')}s`;
-    setTimeout(tick,1000)}; tick();})();
+
+/* black friday: some após o dia 18/11 */
+(()=>{const el=$('#bf'); if(el && new Date()>=new Date('2026-11-19T00:00:00-03:00')) el.remove();})();
 /* seções: linha dourada + entrada do conteúdo */
 const sio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('seen');sio.unobserve(e.target)}}),{rootMargin:'0px 0px -12% 0px',threshold:.04});
 $$('.sec').forEach(s=>sio.observe(s));
